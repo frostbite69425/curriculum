@@ -53,43 +53,6 @@ The key players in this story will be the `upstream` (the original GitHub reposi
 git remote add upstream git@github.com:TheOdinProject/curriculum.git
 ```
 
-#### Ongoing workflow
-
-We've got one main branch -- `main`. `main` is for production-ready code. Any code deployed to `main` (on the original repo, not on your fork) will be tested in staging and shipped to production. You'll be working in a feature branch and submitting your pull requests to the `main` branch.
-
-1. Create a new feature branch for whatever feature you want to build, and add commits following the same practices that you learned about in the [branching section of our Revisiting Rock Paper Scissors lesson](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors#using-branches).
-1. When you're done with your feature, odds are that someone has made changes to the upstream repository in the meantime. That means that your `main` branch is probably out of date. Fetch the most updated copy using `git fetch upstream`.
-1. Now merge the upstream's changes into your local version of `main` using `git merge`. Specifically, you'll first want to make sure you're on your `main` branch using `git checkout main` and then `git merge upstream/main` to merge in those upstream changes that we just fetched.
-1. Now that your `main` branch is up-to-date with upstream, you need to merge it into your feature branch. Yes, that is correct and it seems odd at first. Don't you want to merge the feature branch into the `main` branch instead? Yes, you do, *but not yet*. **Your feature branch is dirty.** You don't know if it has any conflicts which might creep up. Any time you are merging in more "senior" branches (e.g. merging the feature into `main`), you want it to be a clean and conflict-free merge if possible. So you first merge the "senior" branch into your dirty branch to resolve those conflicts. Run `git checkout your_feature_name` to jump back onto your feature branch, then `git merge main` to merge `main` into it.
-1. You may have merge conflicts... resolve those using the skills you learned in [the Working with Remotes lesson](https://www.theodinproject.com/lessons/javascript-working-with-remotes)!
-
-<div class="lesson-note" markdown="1">
-
-#### Using fetch and merge to be explicit
-
-Note that a `git fetch upstream` followed by a `git merge upstream/some_branch` is the EXACT same thing as doing a `git pull upstream some_branch`. We prefer to split it up here so that we can explicitly walk through the steps.
-
-</div>
-
-#### Sending your pull request
-
-1. Now that your feature branch is squeaky clean and you know it'll merge cleanly into `main`, the hard part is all over. All that's left is to make the Pull Request (often abbreviated as PR) against our `upstream` repo on GitHub!
-1. Now you want to send your feature branch back up to your `origin` (your fork of the `upstream` repository). You can't send directly to `upstream` because you don't have access, so you'll need to make a pull request. Use `git push origin your_feature_name` to ship your feature branch up to your fork on GitHub.
-
-   <div class="lesson-note lesson-note--critical" markdown="1">
-
-   #### Don't open unnecessary PRs
-
-   **If you have not been assigned an issue to work on, stop here.** Do not open a test/practice PR, and any such PRs will be treated as spam and closed by a maintainer without review.
-
-   If you have been assigned to work on an issue by a maintainer, feel free to continue with the next step.
-
-   </div>
-
-1. **If you have completed an assigned issue**, the final step is to submit a pull request to merge your feature branch into the original `upstream` repository's `main` branch. This can be done using GitHub's interface.
-1. Shake your moneymaker, you're an OSS contributor!
-
-</div>
 
 ### Knowledge check
 
